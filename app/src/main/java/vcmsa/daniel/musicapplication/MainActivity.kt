@@ -77,8 +77,5 @@ class MainActivity : AppCompatActivity() {
                     intent.putExtra("comments", comments)
                     startActivity(intent)
                 }
-
-
-
     }
 }
