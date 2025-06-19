@@ -34,51 +34,32 @@ class DetailedViewScreen : AppCompatActivity() {
         val comments = intent.getStringArrayListExtra("comments")
 
         // Making the user aware of what the return home button does
-        tvOutputFromButtonActions.text = "Clicking the Return to Home Screen button will take you back to the main screen and Reset the playlist"
+        tvOutputFromButtonActions.text =
+            "Clicking the Return to Home Screen button will take you back to the main screen and Reset the playlist"
 
         // Created onclick listeners for the buttons
         btSongDisplay.setOnClickListener {
             // making use of a loop to loop through arrays and display the information
             for (i in song?.indices!!)
-                tvOutputFromButtonActions.text = "Song Name: " + song.joinToString() + "\n" + "Artist Name: " + artist?.joinToString() + "\n" +
-                        "Rating: " + ratings?.joinToString() + "\n" + "Comments: " + comments?.joinToString()
+                tvOutputFromButtonActions.text =
+                    "Song Name: " + song.joinToString() + "\n" + "Artist Name: " + artist?.joinToString() + "\n" +
+                            "Rating: " + ratings?.joinToString() + "\n" + "Comments: " + comments?.joinToString()
         }
         // Gets the average rating from the ratings array and displays it in the tvOutputFromButtonActions
         btAverageRating.setOnClickListener {
-                val average = ratings?.mapNotNull { it.toIntOrNull() }?.average()
-                tvOutputFromButtonActions.text = "The average rating is: " + average.toString().toDouble()
-
-            }
-
-        // Returns to the main screen and resets the arrays
-        btReturnToHomeScreen.setOnClickListener {
-         val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            val average = ratings?.mapNotNull { it.toIntOrNull() }?.average()
+            tvOutputFromButtonActions.text =
+                "The average rating is: " + average.toString().toDouble()
 
         }
 
+        // Returns to the main screen and resets the arrays
+        btReturnToHomeScreen.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
     }
 }
