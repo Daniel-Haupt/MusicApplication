@@ -52,6 +52,8 @@ class DetailedViewScreen : AppCompatActivity() {
         btReturnToHomeScreen.setOnClickListener {
          val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
+
         }
 
 

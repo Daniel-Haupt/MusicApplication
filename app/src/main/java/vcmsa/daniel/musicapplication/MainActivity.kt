@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
             // Exit button that exits the app
             btExitMainScreen.setOnClickListener {
                 finish()
+
             }
             // Add to playlist button that adds the user input to the arrays and clears the input fields. Also checks if the fields are empty.
             btAddToPlaylist.setOnClickListener {
@@ -76,6 +77,7 @@ class MainActivity : AppCompatActivity() {
                     intent.putExtra("ratings", ratings)
                     intent.putExtra("comments", comments)
                     startActivity(intent)
+                    finish()
                 }
     }
 }
