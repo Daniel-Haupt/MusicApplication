@@ -34,85 +34,49 @@ class MainActivity : AppCompatActivity() {
         var etComments = findViewById<EditText>(R.id.etComments)
         var tvGuidanceAndErrors = findViewById<TextView>(R.id.tvGuidanceAndErrors)
 
+        tvGuidanceAndErrors.text = "*IMPORTANT* Do not leave fields empty, do not make use of letters symbols commas or dots in the ratings field."
+            // Created arrays to store the user input
+            val song = arrayListOf<String>()
+            val artist = arrayListOf<String>()
+            val comments = arrayListOf<String>()
+            val ratings = arrayListOf<String>()
 
-        if (etRatings.text.toString().toInt() > 5) {
-            tvGuidanceAndErrors.text = "Rating can only be from 1 to 5"
-        }
-        else if (etRatings.text.toString().toIntOrNull() == null) {
-            tvGuidanceAndErrors.text = "Please enter only a number in the rating field"
-        }
-        else if (etRatings.text.toString().contains(".")){
-            tvGuidanceAndErrors.text = "No decimals are allowed in the rating field. Please enter a whole number"
+            // Created onclick listeners for the buttons
+
+            // Exit button that exits the app
+            btExitMainScreen.setOnClickListener {
+                finish()
             }
+            // Add to playlist button that adds the user input to the arrays and clears the input fields. Also checks if the fields are empty.
+            btAddToPlaylist.setOnClickListener {
+                if (etSongTitle.text.isEmpty() || etArtistName.text.isEmpty() || etRatings.text.isEmpty() || etComments.text.isEmpty()) {
+                    tvGuidanceAndErrors.text = "Please fill in all fields"
+                    return@setOnClickListener
 
+                }
+                else{
+                    song.add(etSongTitle.text.toString())
+                    artist.add(etArtistName.text.toString())
+                    comments.add(etComments.text.toString())
+                    ratings.add(etRatings.text.toString())
+                    etSongTitle.text.clear()
+                    etArtistName.text.clear()
+                    etRatings.text.clear()
+                    etComments.text.clear()
+                    tvGuidanceAndErrors.text = "Song Added"
+                }
+                }
+                // Next screen button that takes the user to the detailed view screen and passes the user input to it as an intent.
+                // ( Adds array information to the DetailedViewScreen )
 
-        // Created arrays to store the user input
-        val song = arrayListOf<String>()
-        val artist = arrayListOf<String>()
-        val comments = arrayListOf<String>()
-        val ratings = arrayListOf<Int>()
-
-
-        // Created onclick listeners for the buttons
-
-        // Exit button that exits the app
-        btExitMainScreen.setOnClickListener {
-            finish()
-        }
-        // Add to playlist button that adds the user input to the arrays and clears the input
-        btAddToPlaylist.setOnClickListener {
-
-            song.add(etSongTitle.text.toString())
-            artist.add(etArtistName.text.toString())
-            comments.add(etComments.text.toString())
-            ratings.add(etRatings.text.toString().toInt())
-            etSongTitle.text.clear()
-            etArtistName.text.clear()
-            etRatings.text.clear()
-            etComments.text.clear()
-        }
-        // Next screen button that takes the user to the detailed view screen and passes the user input to it as an intent.
-        // ( Adds array information to the DetailedViewScreen )
-
-        btNextMainScreen.setOnClickListener {
-            val intent = Intent(this, DetailedViewScreen::class.java)
-            intent.putExtra("song", song)
-            intent.putExtra("artist", artist)
-            intent.putExtra("ratings", ratings)
-            intent.putExtra("comments", comments)
-            startActivity(intent)
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                btNextMainScreen.setOnClickListener {
+                    val intent = Intent(this, DetailedViewScreen::class.java)
+                    intent.putExtra("song", song)
+                    intent.putExtra("artist", artist)
+                    intent.putExtra("ratings", ratings)
+                    intent.putExtra("comments", comments)
+                    startActivity(intent)
+                }
 
 
 
