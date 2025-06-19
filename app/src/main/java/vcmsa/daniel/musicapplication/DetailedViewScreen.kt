@@ -1,3 +1,5 @@
+// ST10492718
+// Daniel Johannes Haupt
 package vcmsa.daniel.musicapplication
 
 import android.content.Intent
