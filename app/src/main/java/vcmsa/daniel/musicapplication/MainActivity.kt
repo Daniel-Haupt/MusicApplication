@@ -34,28 +34,38 @@ class MainActivity : AppCompatActivity() {
         var etComments = findViewById<EditText>(R.id.etComments)
         var tvGuidanceAndErrors = findViewById<TextView>(R.id.tvGuidanceAndErrors)
 
-        tvGuidanceAndErrors.text = "*IMPORTANT* Do not leave fields empty, do not make use of letters symbols commas or dots in the ratings field."
-            // Created arrays to store the user input
-            val song = arrayListOf<String>()
-            val artist = arrayListOf<String>()
-            val comments = arrayListOf<String>()
-            val ratings = arrayListOf<String>()
+        tvGuidanceAndErrors.text =
+            "*IMPORTANT* Do not leave fields empty, do not make use of letters symbols commas or dots in the ratings field."
+        // Created arrays to store the user input
+        val song = arrayListOf<String>()
+        val artist = arrayListOf<String>()
+        val comments = arrayListOf<String>()
+        val ratings = arrayListOf<String>()
 
-            // Created onclick listeners for the buttons
+        // Created onclick listeners for the buttons
 
-            // Exit button that exits the app
-            btExitMainScreen.setOnClickListener {
-                finish()
+        // Exit button that exits the app
+        btExitMainScreen.setOnClickListener {
+            finish()
+
+        }
+        // Add to playlist button that adds the user input to the arrays and clears the input fields. Also checks if the fields are empty.
+        btAddToPlaylist.setOnClickListener {
+            if (etSongTitle.text.isEmpty() || etArtistName.text.isEmpty() || etRatings.text.isEmpty() || etComments.text.isEmpty()) {
+                tvGuidanceAndErrors.text = "Please fill in all fields"
+
+            }else if (etRatings.text.toString().contains(".") || etRatings.text.toString().contains(",")) {
+                tvGuidanceAndErrors.text = "Please don't use decimals in the ratings field"
+
+            }else if (etRatings.text.toString().toIntOrNull() == null){
+                tvGuidanceAndErrors.text = "Please enter a number in the ratings field instead of letters"
+            }
+            else if (etRatings.text.toString().toInt() < 1 || etRatings.text.toString()
+                    .toInt() > 5) {
+                tvGuidanceAndErrors.text = "Please enter a rating between 1 and 5"
 
             }
-            // Add to playlist button that adds the user input to the arrays and clears the input fields. Also checks if the fields are empty.
-            btAddToPlaylist.setOnClickListener {
-                if (etSongTitle.text.isEmpty() || etArtistName.text.isEmpty() || etRatings.text.isEmpty() || etComments.text.isEmpty()) {
-                    tvGuidanceAndErrors.text = "Please fill in all fields"
-                    return@setOnClickListener
-
-                }
-                else{
+            else{
                     song.add(etSongTitle.text.toString())
                     artist.add(etArtistName.text.toString())
                     comments.add(etComments.text.toString())
