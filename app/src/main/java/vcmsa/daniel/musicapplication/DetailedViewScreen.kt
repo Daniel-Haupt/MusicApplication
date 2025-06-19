@@ -31,7 +31,8 @@ class DetailedViewScreen : AppCompatActivity() {
         val ratings = intent.getStringArrayListExtra("ratings")
         val comments = intent.getStringArrayListExtra("comments")
 
-
+        // Making the user aware of what the return home button does
+        tvOutputFromButtonActions.text = "Clicking the Return to Home Screen button will take you back to the main screen and Reset the playlist"
 
         // Created onclick listeners for the buttons
         btSongDisplay.setOnClickListener {
