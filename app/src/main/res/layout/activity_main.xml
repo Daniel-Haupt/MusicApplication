@@ -10,18 +10,22 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/tvMainScreenTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="135dp"
+            android:layout_marginStart="101dp"
             android:layout_marginTop="25dp"
-            android:layout_marginEnd="133dp"
+            android:layout_marginEnd="100dp"
             android:text="Home Screen"
-            android:textSize="24sp"
+            android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,15 +34,14 @@
             android:id="@+id/btExitMainScreen"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginStart="162dp"
-            android:layout_marginEnd="162dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginStart="155dp"
+            android:layout_marginEnd="156dp"
+            android:layout_marginBottom="4dp"
             android:backgroundTint="#DB0303"
             android:text="Exit"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -67,14 +70,64 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/etSongTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="101dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="100dp"
             android:ems="10"
+            android:hint="Enter Song Title"
             android:inputType="text"
-            android:text="Name"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="82dp" />
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMainScreenTitle" />
+
+        <EditText
+            android:id="@+id/etArtistName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="101dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="100dp"
+            android:ems="10"
+            android:hint="Enter Artist Name"
+            android:inputType="text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etSongTitle" />
+
+        <EditText
+            android:id="@+id/etRatings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="101dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="100dp"
+            android:ems="10"
+            android:hint="Enter Rating"
+            android:inputType="text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etArtistName" />
+
+        <EditText
+            android:id="@+id/etComments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="101dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="100dp"
+            android:ems="10"
+            android:hint="Add Comment"
+            android:inputType="text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etRatings" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
